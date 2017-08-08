@@ -16,7 +16,8 @@ app.route('/')
     })
 
 app.get('/api/imagesearch/:search*', function(req, res){
-  res.send('test')
+  console.log('https://www.googleapis.com/customsearch/v1?key=' + process.env.KEY + '&cx=' + process.env.CX + '&searchType=image&q=lol')
+  res.send(req.params.search)
 })
 
 app.listen(process.env.PORT, function () {
