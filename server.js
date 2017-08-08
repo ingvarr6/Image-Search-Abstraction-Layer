@@ -32,11 +32,9 @@ app.route('/')
 
 app.get('/api/imagesearch/:search', function(req, res){
   
-  getJSON(req.query.offset, req.params.search, function(data){
-    res.send(data.items)
+  getJSON(req.params.search, req.query.offset, function(data){
+    res.json(data.items)
   })
-
-res.end()
 })
 
 function getJSON(search, offset, callback){
@@ -45,6 +43,7 @@ function getJSON(search, offset, callback){
     url: url,
     json: true
   }, function(err, responce, body){
+    
     callback(body)
   })
 }
