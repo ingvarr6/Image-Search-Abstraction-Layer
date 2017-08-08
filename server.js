@@ -30,11 +30,13 @@ app.get('/api/imagesearch/:search', function(req, res){
   var dataJSON = ''
   for(var i in json){
       dataJSON = ({
-        url:
-        json[i].link
+        url:json[i].link,
+        snippet:json[i].title,
+        thumbnail:json[i].image.thumbnailLink,
+        context:json[i].image.contextLink
       });
   }
-  res.json();
+  res.json(dataJSON);
 })
 
 function getJSON(search, offset, callback){
