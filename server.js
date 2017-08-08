@@ -21,12 +21,14 @@ app.route('/')
     })
 
 app.get('/api/latest/imagesearch/', function(req, res){
+  
   mongo.connect(urlDB, function(err, db) {
     if (err) throw err;
     var collection = db.collection('search_history');
-    
+    res.send(collection.find();
     db.close();
   })
+
 })
 
 app.get('/api/imagesearch/:search', function(req, res){
