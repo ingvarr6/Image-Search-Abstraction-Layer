@@ -27,7 +27,7 @@ app.get('/api/imagesearch/:search*', function(req, res){
     json: true
   }, function(err, responce, body){
 
-    console.log(JSON.parse(body))
+    console.log((body.items))
   })
   res.end()
 })
