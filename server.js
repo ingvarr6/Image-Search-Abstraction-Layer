@@ -7,9 +7,12 @@
 
 var express = require('express');
 var request = require('request');
+var bodyParser = require('body-parser');
+
 var app = express();
 
 app.use('/public', express.static(process.cwd() + '/public'));
+app.use(bodyParser.json());
   
 app.route('/')
     .get(function(req, res) {
@@ -17,14 +20,13 @@ app.route('/')
     })
 
 app.get('/api/imagesearch/:search*', function(req, res){
-  var url = 'https://www.googleapis.com/customsearch/v1?key=' + process.env.KEY + '&cx=' + process.env.CX + '&searchType=image&q=lol';
+  var url = 'https://www.googleapis.com/customsearch/v1?key=' + process.env.KEY + '&cx=' + process.env.CX + '&searchType=image&q='+req.params.search;
   
   request({
     url: url,
     json: true
-  
   }).pipe(res);
-  //res.send('')
+  
 })
 
 app.listen(process.env.PORT, function () {
