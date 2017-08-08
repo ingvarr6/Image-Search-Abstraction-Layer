@@ -8,7 +8,8 @@
 var express = require('express');
 var request = require('request');
 var bodyParser = require('body-parser');
-
+var mongo = require('mongodb').MongoClient
+var urlDB = 'mongodb://' + process.env.DB_USER +':' + process.env.DB_PASS + '@ds141351.mlab.com:41351/image_search_history';
 var app = express();
 
 app.use('/public', express.static(process.cwd() + '/public'));
@@ -18,6 +19,15 @@ app.route('/')
     .get(function(req, res) {
 		  res.sendFile(process.cwd() + '/views/index.html');
     })
+
+app.get('/api/latest/imagesearch/', function(req, res){
+  mongo.connect(urlDB, function(err, db) {
+    if (err) throw err;
+    var collection = db.collection('search_history');
+    
+    db.close();
+  })
+})
 
 app.get('/api/imagesearch/:search', function(req, res){
   
