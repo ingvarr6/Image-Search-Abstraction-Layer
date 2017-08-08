@@ -24,7 +24,7 @@ app.get('/api/latest/imagesearch/', function(req, res){
   mongo.connect(urlDB, function(err, db) {
     if (err) throw err;
     var collection = db.collection('search_history');
-    collection.find({},{_id: 0}).sort({when: 1}).toArray(function (err, data){
+    collection.find({},{_id: 0}).sort({when: -1}).toArray(function (err, data){
       res.json(data);
     });
     db.close();
