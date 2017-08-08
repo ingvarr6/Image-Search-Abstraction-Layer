@@ -22,10 +22,9 @@ app.get('/api/imagesearch/:search*', function(req, res){
   request({
     url: url,
     json: true
-  }, function(err, res, body){
-    console.log(body)
-  })
-  res.send('')
+  
+  }).pipe(res);
+  //res.send('')
 })
 
 app.listen(process.env.PORT, function () {
