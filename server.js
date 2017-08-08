@@ -21,14 +21,13 @@ app.route('/')
 
 app.get('/api/imagesearch/:search', function(req, res){
   var url = 'https://www.googleapis.com/customsearch/v1?key=' + process.env.KEY + '&cx=' + process.env.CX + '&searchType=image&start=' + (req.query.offset || '1') + '&q='+req.params.search;
-  console.log(url)
   request({
     url: url,
     json: true
   }, function(err, responce, body){
-
-    //console.log((body.items))
-  }).pipe(res)
+    
+    console.log(typeof(body))
+  })
 
 })
 
