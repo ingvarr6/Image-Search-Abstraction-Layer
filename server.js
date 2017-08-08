@@ -21,23 +21,20 @@ app.route('/')
 
 app.get('/api/imagesearch/:search', function(req, res){
   
-  // getJSON(req.params.search, req.query.offset, function(data){
-  //   res.json(data.items)
-  // })
-  
-  var json = [{"kind":"customsearch#result","title":"Lolcat - Wikipedia","htmlTitle":"Lolcat - Wikipedia","link":"https://upload.wikimedia.org/wikipedia/commons/a/ab/Lolcat_in_folder.jpg","displayLink":"en.wikipedia.org","snippet":"Lolcat - Wikipedia","htmlSnippet":"Lolcat - Wikipedia","mime":"image/jpeg","image":{"contextLink":"https://en.wikipedia.org/wiki/Lolcat","height":333,"width":442,"byteSize":90137,"thumbnailLink":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6GV72mP_H6SUN7pCWcZegmpci2jVWMZplUrtnyN4QJNb8q8D8Qmsi2kE","thumbnailHeight":96,"thumbnailWidth":127}},{"kind":"customsearch#result","title":"LOLCats - Funny cat pictures","htmlTitle":"<b>LOLCats</b> - Funny <b>cat</b> pictures","link":"http://www.lolcats.com/images/u/12/43/lolcatsdotcomlikemyself.jpg","displayLink":"www.lolcats.com","snippet":"LOLCats - Funny cat pictures","htmlSnippet":"<b>LOLCats</b> - Funny <b>cat</b> pictures","mime":"image/jpeg","image":{"contextLink":"http://www.lolcats.com/","height":419,"width":490,"byteSize":46054,"thumbnailLink":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0WQ-zCFWDY75YTbbdXrpoD98p5aBovTHwJa_nOH8Lwc5I1ZHicna6x64Q","thumbnailHeight":111,"thumbnailWidth":130}},{"kind":"customsearch#result","title":"Image - 527369] | LOLcats | Know Your Meme","htmlTitle":"Image - 527369] | <b>LOLcats</b> | Know Your Meme","link":"http://i0.kym-cdn.com/photos/images/original/000/527/369/fbb.jpg","displayLink":"knowyourmeme.com","snippet":"Image - 527369] | LOLcats | Know Your Meme","htmlSnippet":"Image - 527369] | <b>LOLcats</b> | Know Your Meme","mime":"image/jpeg","image":{"contextLink":"http://knowyourmeme.com/photos/527369-lolcats","height":851,"width":1280,"byteSize":602801,"thumbnailLink":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS-lds8CZVm9X_Nh-mCqKXA4OQsrxdHJnJ7ZJ4T1-p4lcwsiH4ywGwBnA","thumbnailHeight":100,"thumbnailWidth":150}},{"kind":"customsearch#result","title":"LOLCats - Funny cat pictures","htmlTitle":"<b>LOLCats</b> - Funny <b>cat</b> pictures","link":"http://www.lolcats.com/images/u/12/43/lolcatsdotcomnapkin.jpg","displayLink":"www.lolcats.com","snippet":"LOLCats - Funny cat pictures","htmlSnippet":"<b>LOLCats</b> - Funny <b>cat</b> pictures","mime":"image/jpeg","image":{"contextLink":"http://www.lolcats.com/","height":378,"width":490,"byteSize":34641,"thumbnailLink":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcYA-IDnn2gXl7VEhQzFQUIpZHLfVTCpRQJ0LghoWlmTQT7f4l68crh0c","thumbnailHeight":100,"thumbnailWidth":130}},{"kind":"customsearch#result","title":"Lolcat - Wikipedia","htmlTitle":"Lolcat - Wikipedia","link":"https://upload.wikimedia.org/wikipedia/commons/1/1a/Cat_crying_%28Lolcat%29.jpg","displayLink":"en.wikipedia.org","snippet":"Lolcat - Wikipedia","htmlSnippet":"Lolcat - Wikipedia","mime":"image/jpeg","image":{"contextLink":"https://en.wikipedia.org/wiki/Lolcat","height":768,"width":1024,"byteSize":205354,"thumbnailLink":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJpSM9MuA7EJF-WRAeShYF4n7qub20_bTyabU17gFOnemQZSYMVbLLnns","thumbnailHeight":113,"thumbnailWidth":150}},{"kind":"customsearch#result","title":"lolcats - Dr. Odd","htmlTitle":"<b>lolcats</b> - Dr. Odd","link":"http://www.drodd.com/images16/lolcats5.jpg","displayLink":"www.drodd.com","snippet":"lolcats - Dr. Odd","htmlSnippet":"<b>lolcats</b> - Dr. Odd","mime":"image/jpeg","image":{"contextLink":"http://www.drodd.com/html7/lolcats.html","height":421,"width":575,"byteSize":69177,"thumbnailLink":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs2N1U9lOzy7fCXW9sRZe0Bn3SOLAx8Z6iE5Ij1it8QaKZlC8LrcMFhfE","thumbnailHeight":98,"thumbnailWidth":134}},{"kind":"customsearch#result","title":"I must go. My Planet needs me lol :D : lolcats","htmlTitle":"I must go. My Planet needs me <b>lol</b> :D : <b>lolcats</b>","link":"http://i.imgur.com/tBRxK9O.png","displayLink":"www.reddit.com","snippet":"I must go. My Planet needs me lol :D : lolcats","htmlSnippet":"I must go. My Planet needs me <b>lol</b> :D : <b>lolcats</b>","mime":"image/png","image":{"contextLink":"https://www.reddit.com/r/lolcats/comments/3ok8ry/i_must_go_my_planet_needs_me_lol_d/","height":800,"width":1280,"byteSize":972359,"thumbnailLink":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT32Rjkf9nfONr4MJgXIIfg2U6stSXH1PgkAsII4PRG2OXSDE0PE7LT9n6","thumbnailHeight":94,"thumbnailWidth":150}},{"kind":"customsearch#result","title":"LOLCats - Funny cat pictures","htmlTitle":"<b>LOLCats</b> - Funny <b>cat</b> pictures","link":"http://www.lolcats.com/images/u/12/24/lolcatsdotcompromdate.jpg","displayLink":"www.lolcats.com","snippet":"LOLCats - Funny cat pictures","htmlSnippet":"<b>LOLCats</b> - Funny <b>cat</b> pictures","mime":"image/jpeg","image":{"contextLink":"http://www.lolcats.com/","height":379,"width":490,"byteSize":45288,"thumbnailLink":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrTlU1tCIvPCZiLka4iE42P9HDWFquFY3MWqi2NE0jn1TTLAFybdpBylKX","thumbnailHeight":101,"thumbnailWidth":130}},{"kind":"customsearch#result","title":"63 best LOLcats images on Pinterest","htmlTitle":"63 best <b>LOLcats</b> images on Pinterest","link":"https://s-media-cache-ak0.pinimg.com/736x/f9/60/4b/f9604b730dca192256ae82acee3b392b--what-s-adorable-animals.jpg","displayLink":"www.pinterest.com","snippet":"63 best LOLcats images on Pinterest","htmlSnippet":"63 best <b>LOLcats</b> images on Pinterest","mime":"image/jpeg","image":{"contextLink":"https://www.pinterest.com/gretehw/lolcats/","height":395,"width":450,"byteSize":39399,"thumbnailLink":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNZxpjOAFz8mUFybpnGPrMOxWm7svGtP6AfEgl-gYKHVJkUUVTbadm0aE","thumbnailHeight":111,"thumbnailWidth":127}},{"kind":"customsearch#result","title":"LOLCats - Funny cat pictures","htmlTitle":"<b>LOLCats</b> - Funny <b>cat</b> pictures","link":"http://www.lolcats.com/images/u/12/52/allforme.jpg","displayLink":"www.lolcats.com","snippet":"LOLCats - Funny cat pictures","htmlSnippet":"<b>LOLCats</b> - Funny <b>cat</b> pictures","mime":"image/jpeg","image":{"contextLink":"http://www.lolcats.com/","height":350,"width":480,"byteSize":54308,"thumbnailLink":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh-P4aRM0ACliKk_mDcbGHuQcd0AYSUSL7CniGT1KP90jLxMC2vrSUVVPV","thumbnailHeight":94,"thumbnailWidth":129}}]
-
-  var dataJSON = ''
-  for(var i in json){
-      dataJSON = JSON.parse({
-        "url":json[i].link,
-        "snippet":json[i].title,
-        "thumbnail":json[i].image.thumbnailLink,
-        "context":json[i].image.contextLink
-      });
-    console.log(dataJSON)
-  }
-  res.json((dataJSON));
+  getJSON(req.params.search, req.query.offset, function(data){
+    var data = data.items
+    
+    var dataJSON = []
+    for(var i in data){
+        dataJSON.push({
+          "url":data[i].link,
+          "snippet":data[i].title,
+          "thumbnail":data[i].image.thumbnailLink,
+          "context":data[i].image.contextLink
+        });
+    }
+    res.json(dataJSON);
+  })
 })
 
 function getJSON(search, offset, callback){
