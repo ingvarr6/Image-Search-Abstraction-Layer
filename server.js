@@ -15,7 +15,7 @@ app.route('/')
 		  res.sendFile(process.cwd() + '/views/index.html');
     })
 
-app.get('/api/imagesearch/:search', function(req, res){
+app.get('/api/imagesearch/:search*', function(req, res){
   res.send('test')
 })
 
