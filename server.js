@@ -19,18 +19,35 @@ app.route('/')
 		  res.sendFile(process.cwd() + '/views/index.html');
     })
 
+// app.get('/api/imagesearch/:search', function(req, res){
+//   var url = 'https://www.googleapis.com/customsearch/v1?key=' + process.env.KEY + '&cx=' + process.env.CX + '&searchType=image&start=' + (req.query.offset || '1') + '&q='+req.params.search;
+//   request({
+//     url: url,
+//     json: true
+//   }, function(err, responce, body){
+    
+//   })
+// res.end()
+// })
+
 app.get('/api/imagesearch/:search', function(req, res){
-  var url = 'https://www.googleapis.com/customsearch/v1?key=' + process.env.KEY + '&cx=' + process.env.CX + '&searchType=image&start=' + (req.query.offset || '1') + '&q='+req.params.search;
+  
+  getJSON(req.query.offset, req.params.search, function(data){
+    res.send(data.items)
+  })
+
+res.end()
+})
+
+function getJSON(search, offset, callback){
+    var url = 'https://www.googleapis.com/customsearch/v1?key=' + process.env.KEY + '&cx=' + process.env.CX + '&searchType=image&start=' + (offset || '1') + '&q='+search;
   request({
     url: url,
     json: true
   }, function(err, responce, body){
-    
-    console.log((responce))
-    this.res.send('zxc')
+    callback(body)
   })
-res.end()
-})
+}
 
 app.listen(process.env.PORT, function () {
   console.log('Node.js listening ...');
