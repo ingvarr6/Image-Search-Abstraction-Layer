@@ -26,9 +26,10 @@ app.get('/api/imagesearch/:search', function(req, res){
     json: true
   }, function(err, responce, body){
     
-    console.log(typeof(body))
+    console.log((responce))
+    this.res.send('zxc')
   })
-
+res.end()
 })
 
 app.listen(process.env.PORT, function () {
