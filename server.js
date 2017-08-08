@@ -25,8 +25,11 @@ app.get('/api/imagesearch/:search*', function(req, res){
   request({
     url: url,
     json: true
-  }).pipe(res);
-  
+  }, function(err, responce, body){
+
+    console.log(JSON.parse(body))
+  })
+  res.end()
 })
 
 app.listen(process.env.PORT, function () {
