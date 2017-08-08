@@ -19,17 +19,17 @@ app.route('/')
 		  res.sendFile(process.cwd() + '/views/index.html');
     })
 
-app.get('/api/imagesearch/:search*', function(req, res){
-  var url = 'https://www.googleapis.com/customsearch/v1?key=' + process.env.KEY + '&cx=' + process.env.CX + '&searchType=image&q='+req.params.search;
-  
+app.get('/api/imagesearch/:search', function(req, res){
+  var url = 'https://www.googleapis.com/customsearch/v1?key=' + process.env.KEY + '&cx=' + process.env.CX + '&searchType=image&start=' +req.query.offset && 0+ '&q='+req.params.search;
+  console.log(req.query.offset)
   request({
     url: url,
     json: true
   }, function(err, responce, body){
 
-    console.log((body.items))
-  })
-  res.end()
+    //console.log((body.items))
+  }).pipe(res)
+
 })
 
 app.listen(process.env.PORT, function () {
