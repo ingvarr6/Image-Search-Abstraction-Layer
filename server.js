@@ -6,7 +6,7 @@
 'use strict';
 
 var express = require('express');
-var request = require('request')
+var request = require('request');
 var app = express();
 
 app.use('/public', express.static(process.cwd() + '/public'));
@@ -17,8 +17,15 @@ app.route('/')
     })
 
 app.get('/api/imagesearch/:search*', function(req, res){
-  console.log('https://www.googleapis.com/customsearch/v1?key=' + process.env.KEY + '&cx=' + process.env.CX + '&searchType=image&q=lol')
-  res.send(req.params.search)
+  var url = 'https://www.googleapis.com/customsearch/v1?key=' + process.env.KEY + '&cx=' + process.env.CX + '&searchType=image&q=lol';
+  
+  request({
+    url: url,
+    json: true
+  }, function(err, res, body){
+    console.log(body)
+  })
+  res.send('')
 })
 
 app.listen(process.env.PORT, function () {
